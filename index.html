@@ -26,32 +26,23 @@
       top: 1rem;
       left: 1rem;
       background: transparent;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       border: none;
       cursor: pointer;
       z-index: 1001;
     }
-    .emoji-effect {
+    .floating {
       position: fixed;
       bottom: -30px;
       font-size: 1.5rem;
-      animation: floatEmoji 6s linear infinite;
       pointer-events: none;
       z-index: 5;
       user-select: none;
+      animation: floatUp 6s linear infinite;
     }
-    @keyframes floatEmoji {
+    @keyframes floatUp {
       0% { transform: translateY(0) scale(1); opacity: 1; }
       100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
-    }
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 999;
     }
     .star {
       position: fixed;
@@ -70,23 +61,18 @@
         opacity: 0;
       }
     }
-    .heart-glow {
+    canvas {
       position: fixed;
-      width: 100vw;
-      height: 100vh;
-      background: radial-gradient(circle, rgba(255,192,203,0.2) 0%, transparent 70%);
-      animation: pulseGlow 3s infinite;
-      z-index: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
-    }
-    @keyframes pulseGlow {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
+      z-index: 999;
     }
   </style>
 </head>
 <body>
-  <div class="heart-glow"></div>
   <button class="toggle-theme" onclick="toggleTheme()" aria-label="Toggle theme">🌓</button>
 
   <audio id="bgMusic" autoplay loop preload="auto">
@@ -199,27 +185,21 @@
       confetti({ particleCount: 120, spread: 90, origin: { y: 0.6 } });
     }
 
-    function spawnEmoji() {
+    function spawnFloating(char) {
       const el = document.createElement("div");
-      el.className = "emoji-effect";
-      el.textContent = Math.random() > 0.5 ? "💗" : "😘";
+      el.className = "floating";
+      el.textContent = char;
       el.style.left = Math.random() * 100 + "vw";
       el.style.animationDuration = 5 + Math.random() * 3 + "s";
       document.body.appendChild(el);
       setTimeout(() => el.remove(), 8000);
     }
-    setInterval(spawnEmoji, 1000);
 
-    function spawnBalloon() {
-      const el = document.createElement("div");
-      el.className = "emoji-effect";
-      el.textContent = "🎈";
-      el.style.left = Math.random() * 100 + "vw";
-      el.style.animationDuration = 8 + Math.random() * 2 + "s";
-      document.body.appendChild(el);
-      setTimeout(() => el.remove(), 10000);
-    }
-    setInterval(spawnBalloon, 4000);
+    setInterval(() => spawnFloating(Math.random() > 0.5 ? '💗' : '😘'), 1200);
+    setInterval(() => spawnFloating('🎈'), 3000);
+    setInterval(() => spawnFloating('✨'), 2500);
+    setInterval(() => spawnFloating('❄️'), 3500);
+    setInterval(() => spawnFloating('❤️'), 4000);
 
     function spawnStar() {
       if (!document.body.classList.contains("dark")) return;
