@@ -13,251 +13,85 @@
       overflow-x: hidden;
       transition: all 0.3s ease-in-out;
       color: #6b2c2c;
+      position: relative;
     }
     body.dark {
       background: linear-gradient(120deg, #1e1e2f, #2a2a40);
       color: #ffe4e1;
     }
-
     .lock-screen, .slider, .popup { display: none; }
     .lock-screen.active, .slider.active, .popup.show { display: flex; }
-
-    .lock-screen {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      padding: 2rem;
-      color: #ff69b4;
-    }
-    .lock-screen h2 {
-      font-size: 2.5rem;
-      font-family: "Great Vibes", cursive;
-      margin-bottom: 1rem;
-      animation: pulse 2s infinite;
-    }
-    .lock-screen p {
-      font-family: "Gloria Hallelujah", cursive;
-      font-size: 1.2rem;
-    }
-    .lock-screen input {
-      font-size: 1.5rem;
-      padding: 0.6rem 1rem;
-      border-radius: 0.5rem;
-      border: 2px solid #ff69b4;
-      text-align: center;
-      width: 100px;
-      margin-top: 1rem;
-    }
-    .lock-screen button {
-      margin-top: 1rem;
-      background: linear-gradient(to right, #ff4b2b, #ff416c);
-      color: white;
-      border: none;
-      padding: 0.8rem 2rem;
-      border-radius: 2rem;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    .error-msg {
-      color: red;
-      margin-top: 0.5rem;
-      display: none;
-    }
-
-    h1 {
-      font-family: "Great Vibes", cursive;
-      font-size: 3em;
-      text-align: center;
-      color: #ff4081;
-      margin-top: 1rem;
-    }
-    .quote {
-      text-align: center;
-      font-style: italic;
-      margin: 1rem auto;
-      max-width: 600px;
-      color: #cc3366;
-    }
-    .slider {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 0 1rem 4rem;
-      min-height: 100vh;
-      position: relative;
-    }
-    .section {
-      display: none;
-      padding: 2rem;
-      min-height: 60vh;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      font-family: "Gloria Hallelujah", cursive;
-      font-size: 1.4rem;
-      line-height: 1.6;
-      user-select: none;
-      max-width: 650px;
-      margin: 0 auto;
-    }
-    .section.active {
-      display: flex;
-      animation: fadeIn 1s ease;
-      flex-direction: column;
-    }
-
-    #voiceBtn {
-      background: #ff80ab;
-      color: white;
-      border: none;
-      padding: 0.5rem 1.2rem;
-      border-radius: 1rem;
-      cursor: pointer;
-      animation: pulse 1.8s infinite;
-      box-shadow: 0 0 8px #ff80ab;
-      font-family: "Gloria Hallelujah", cursive;
-      font-size: 1rem;
-      min-width: 140px;
-      margin: 0 auto;
-    }
-
-    .reveal-btn {
-      margin-top: 3rem;
-      background: #ff80ab;
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 1rem;
-      cursor: pointer;
-      animation: pulse 1.5s infinite;
-      box-shadow: 0 0 10px #ff80ab;
-      font-family: "Gloria Hallelujah", cursive;
-      font-size: 1.1rem;
-    }
-
-    .popup {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 0 20px #ff80ab;
-      font-family: "Gloria Hallelujah", cursive;
-      z-index: 1002;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      max-width: 90vw;
-      max-height: 80vh;
-      overflow-y: auto;
-      color: #6b2c2c;
-    }
-
-    .letter-text {
-      font-size: 1.3rem;
-      line-height: 2rem;
-      white-space: pre-wrap;
-      overflow: hidden;
-      width: 100%;
-      max-width: 500px;
-    }
-    .signature {
-      font-family: "Great Vibes", cursive;
-      font-size: 2rem;
-      margin-top: 2rem;
-      color: #ff69b4;
-      opacity: 0;
-      animation: signatureWrite 2.5s ease-out forwards;
-    }
-
-    .next-btn {
-      position: fixed;
-      bottom: 1rem;
-      background: #ffb6c1;
-      color: #333;
-      padding: 0.8rem 1.2rem;
-      border: none;
-      border-radius: 1rem;
-      cursor: pointer;
-      z-index: 100;
-      box-shadow: 0 0 6px #ffb6c1;
-    }
-
     .toggle-theme {
       position: fixed;
       top: 1rem;
       left: 1rem;
-      background: #ff4081;
-      color: #fff;
-      padding: 0.3rem 0.6rem;
-      font-size: 1rem;
+      background: transparent;
+      font-size: 1.2rem;
       border: none;
-      border-radius: 0.4rem;
       cursor: pointer;
       z-index: 1001;
     }
-
-    .footer {
-      text-align: center;
-      margin-top: 3rem;
-      padding: 1rem;
-      font-size: 1rem;
-      color: #999;
-    }
-
-    .balloon {
+    .emoji-effect {
       position: fixed;
       bottom: -30px;
-      font-size: 2rem;
-      animation: floatUp 10s linear infinite;
+      font-size: 1.5rem;
+      animation: floatEmoji 6s linear infinite;
       pointer-events: none;
-      z-index: 10;
+      z-index: 5;
+      user-select: none;
     }
-
-    .shooting-star {
+    @keyframes floatEmoji {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    }
+    canvas {
       position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+    .star {
+      position: fixed;
+      top: -20px;
       width: 2px;
       height: 80px;
       background: white;
-      opacity: 0.7;
+      opacity: 0.6;
       transform: rotate(45deg);
-      animation: shoot 2s linear forwards;
       z-index: 10;
+      animation: shootStar 1s ease-out forwards;
     }
-
-    @keyframes floatUp {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(-110vh); opacity: 0; }
+    @keyframes shootStar {
+      to {
+        transform: translate(300px, 300px) rotate(45deg);
+        opacity: 0;
+      }
     }
-
-    @keyframes shoot {
-      0% { transform: translate(0, 0) rotate(45deg); opacity: 1; }
-      100% { transform: translate(100vw, 100vh) rotate(45deg); opacity: 0; }
+    .heart-glow {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle, rgba(255,192,203,0.2) 0%, transparent 70%);
+      animation: pulseGlow 3s infinite;
+      z-index: 0;
+      pointer-events: none;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-
-    @keyframes signatureWrite {
-      0% { opacity: 0; transform: translateX(-50px); }
-      100% { opacity: 1; transform: translateX(0); }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
     }
   </style>
 </head>
 <body>
+  <div class="heart-glow"></div>
   <button class="toggle-theme" onclick="toggleTheme()" aria-label="Toggle theme">🌓</button>
+
+  <audio id="bgMusic" autoplay loop preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/06/audio_f2119a6a1c.mp3" type="audio/mpeg" />
+  </audio>
 
   <div class="lock-screen active" id="lockScreen">
     <h2>🔒 Secret Gateway</h2>
@@ -271,49 +105,53 @@
   <div class="slider" id="slider">
     <h1>Happy Birthday Maya 🎉</h1>
     <p class="quote">"You make the world brighter just by being in it."</p>
-    <div class="section active">🎂 The universe pauses to celebrate you. You complete me.</div>
-    <div class="section">🌌 You're breathtaking, inside and out. 💖</div>
-    <div class="section">🌠 My world began spinning when I met you. 🥺</div>
-    <div class="section">🎶 Your laugh is the rhythm I live for. ❤️</div>
-    <div class="section">🦋 You are grace wrapped in stardust. 🌷</div>
+
+    <div class="section active">🎂 On this special day, the universe pauses to celebrate you. Your existence adds meaning to mine.</div>
+    <div class="section">🌌 You're not just beautiful on the outside, but breathtaking within. Today, we celebrate all that you are. 💖</div>
+    <div class="section">🌠 My world began spinning in color the day you walked into it. You are my life. 🥺</div>
+    <div class="section">🎶 Your laughter is the rhythm I live for. I'd write your name on every heartbeat. ❤️</div>
+    <div class="section">🦋 You are grace wrapped in stardust. I fall for you every single day. 🌷</div>
+
     <div class="section">
-      <p style="font-size: 1.5rem;">🔊 Tap to hear my voice</p>
-      <p>Thank you for being the most incredible person in my life 💕</p>
+      <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔊 Tap to hear my voice</p>
+      <p style="font-size: 1.2rem; margin-bottom: 2rem; line-height: 1.5;">Thank you for being the most incredible person in my life. I love you beyond time, beyond everything 💕</p>
       <button id="voiceBtn">▶️ Play Voice Message</button>
       <audio id="voiceMsg" src="https://cdn.pixabay.com/download/audio/2022/08/28/audio_12345.mp3" preload="auto"></audio>
     </div>
+
     <div class="section">
       With all my heart and soul, forever yours,<br /><strong>sparsh</strong> 💌
       <div style="margin-top: 2rem">
-        <button class="reveal-btn" onclick="showPopup(); firework()">💌 Reveal Love Letter 💌</button>
+        <button onclick="showPopup(); firework();">💌 Reveal Love Letter 💌</button>
       </div>
     </div>
-    <button class="next-btn" style="left: 1rem;" onclick="prevSlide()">⬅️ Prev</button>
-    <button class="next-btn" style="right: 1rem;" onclick="nextSlide()">Next ➡️</button>
+
     <div class="footer">© 2025 Made with ❤️ by Sparsh</div>
   </div>
 
   <div class="popup" id="popup">
     <div class="letter-text" id="typedText"></div>
-    <span class="signature" id="signature" style="display:none;">— sparsh 💌</span>
+    <span id="signature" style="display: none; font-family: 'Great Vibes', cursive; font-size: 2rem; margin-top: 2rem; color: #ff69b4;">— sparsh 💌</span>
     <button onclick="hidePopup()">Close</button>
   </div>
 
+  <canvas id="confettiCanvas"></canvas>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script>
     const sections = document.querySelectorAll(".section");
     let current = 0;
+
     const voiceBtn = document.getElementById("voiceBtn");
     const voiceMsg = document.getElementById("voiceMsg");
+    const bgMusic = document.getElementById("bgMusic");
 
     function checkCode() {
       const code = document.getElementById("codeInput").value.trim();
       if (code === "143") {
         document.getElementById("lockScreen").classList.remove("active");
         document.getElementById("slider").classList.add("active");
-        document.getElementById("errorMsg").style.display = "none";
         showSlide(0);
-        launchFireworks(); // 💥 Romantic fireworks
+        playBgMusic();
       } else {
         document.getElementById("errorMsg").style.display = "block";
       }
@@ -323,19 +161,17 @@
       current = index;
       sections.forEach((s, i) => s.classList.toggle("active", i === index));
     }
-    function nextSlide() { if (current < sections.length - 1) showSlide(++current); }
-    function prevSlide() { if (current > 0) showSlide(--current); }
 
     function showPopup() {
-      const text = `Dear Maya,
-
-Your love is the light in my world. Every second with you is magic.
-I promise to love you beyond limits. 💖`;
+      const popup = document.getElementById("popup");
       const target = document.getElementById("typedText");
       const signature = document.getElementById("signature");
+
+      popup.classList.add("show");
       target.innerText = "";
       signature.style.display = "none";
-      document.getElementById("popup").classList.add("show");
+
+      const text = `Dear Maya,\n\nYour love is the light in my world. Every second with you is magic.\nI promise to love you beyond limits. 💖`;
       let i = 0;
       function type() {
         if (i < text.length) {
@@ -343,72 +179,78 @@ I promise to love you beyond limits. 💖`;
           i++;
           setTimeout(type, 50);
         } else {
-          signature.style.display = "inline-block";
+          setTimeout(() => { signature.style.display = "inline-block"; }, 300);
         }
       }
-      type();
+      setTimeout(type, 200);
+      pauseBgMusic();
     }
 
     function hidePopup() {
       document.getElementById("popup").classList.remove("show");
+      playBgMusic();
     }
 
     function toggleTheme() {
       document.body.classList.toggle("dark");
     }
 
-    function launchFireworks() {
-      const duration = 3000;
-      const end = Date.now() + duration;
-      const emojis = ['💖', '😘'];
-      (function frame() {
-        confetti({
-          particleCount: 50,
-          angle: 60 + Math.random() * 60,
-          spread: 70,
-          origin: { x: Math.random(), y: Math.random() * 0.6 },
-          scalar: 1.6,
-          shapes: ['text'],
-          ticks: 200,
-          gravity: 0.6,
-          text: emojis[Math.floor(Math.random() * emojis.length)],
-        });
-        if (Date.now() < end) requestAnimationFrame(frame);
-      })();
+    function firework() {
+      confetti({ particleCount: 120, spread: 90, origin: { y: 0.6 } });
     }
 
-    voiceBtn.onclick = () => {
-      if (voiceMsg.paused) {
-        voiceMsg.play();
-        voiceBtn.textContent = "⏸️ Pause";
-      } else {
-        voiceMsg.pause();
-        voiceBtn.textContent = "▶️ Play Voice Message";
-      }
-    };
+    function spawnEmoji() {
+      const el = document.createElement("div");
+      el.className = "emoji-effect";
+      el.textContent = Math.random() > 0.5 ? "💗" : "😘";
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.animationDuration = 5 + Math.random() * 3 + "s";
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 8000);
+    }
+    setInterval(spawnEmoji, 1000);
 
-    voiceMsg.onended = () => {
-      voiceBtn.textContent = "▶️ Play Voice Message";
-    };
+    function spawnBalloon() {
+      const el = document.createElement("div");
+      el.className = "emoji-effect";
+      el.textContent = "🎈";
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.animationDuration = 8 + Math.random() * 2 + "s";
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 10000);
+    }
+    setInterval(spawnBalloon, 4000);
 
-    setInterval(() => {
-      const b = document.createElement("div");
-      b.className = "balloon";
-      b.textContent = "🎈";
-      b.style.left = Math.random() * 90 + "vw";
-      b.style.animationDuration = 9 + Math.random() * 4 + "s";
-      document.body.appendChild(b);
-      setTimeout(() => b.remove(), 12000);
-    }, 5000);
-
-    setInterval(() => {
+    function spawnStar() {
       if (!document.body.classList.contains("dark")) return;
       const star = document.createElement("div");
-      star.className = "shooting-star";
-      star.style.left = Math.random() * window.innerWidth + "px";
+      star.className = "star";
+      star.style.left = Math.random() * 100 + "vw";
+      star.style.top = Math.random() * 50 + "vh";
       document.body.appendChild(star);
-      setTimeout(() => star.remove(), 2000);
-    }, 7000);
+      setTimeout(() => star.remove(), 1200);
+    }
+    setInterval(spawnStar, 3000);
+
+    voiceBtn.addEventListener("click", () => {
+      if (voiceMsg.paused) {
+        voiceMsg.play();
+        bgMusic.pause();
+        voiceBtn.textContent = "⏸️ Pause Voice Message";
+      } else {
+        voiceMsg.pause();
+        bgMusic.play();
+        voiceBtn.textContent = "▶️ Play Voice Message";
+      }
+    });
+
+    voiceMsg.addEventListener("ended", () => {
+      bgMusic.play();
+      voiceBtn.textContent = "▶️ Play Voice Message";
+    });
+
+    function playBgMusic() { if (bgMusic.paused) bgMusic.play(); }
+    function pauseBgMusic() { if (!bgMusic.paused) bgMusic.pause(); }
   </script>
 </body>
 </html>
